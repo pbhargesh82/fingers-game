@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>How Many Fingers Game</title>
+</head>
+<body>
+    <p>How many fingers am i holding up?</p>
+    <p><input type="text" id="user-guess"></p>
+    <p id="warning"></p>
+    <button id="submit">Guess!</button>
+    <button id="ans">Check Answer</button>
+    <p id="result"></p>
+    <p id="show-ans"></p>
+
+    <script>
+
+        var finger = Math.floor((Math.random() * 5) + 1);
+
+        document.getElementById("submit").onclick = function() {
+            userFinger = document.getElementById("user-guess").value;
+            if(userFinger > 5 || userFinger == "") {
+                document.getElementById("warning").style.display = "block";
+                document.getElementById("result").style.display = "none";
+                document.getElementById("warning").innerHTML = "Please enter a number between 0-5."
+                document.getElementById("warning").style.color = "red";
+            }else {
+                document.getElementById("warning").style.display ="none";
+                document.getElementById("result").style.display = "block";
+                if(finger == userFinger) {
+                    document.getElementById("result").innerHTML = "Congratulations, you won."
+                    document.getElementById("result").style.color = "green";
+                }else {
+                    document.getElementById("result").innerHTML = "Wrong guess, please try again."
+                    document.getElementById("result").style.color = "red";
+                }
+            }
+        }
+
+        document.getElementById("user-guess").onclick = function() {
+            document.getElementById("user-guess").value = "";
+            document.getElementById("warning").style.display = "none";
+            document.getElementById("result").style.display = "none";
+        }
+
+        document.getElementById("ans").onclick = function() {
+            document.getElementById("show-ans").innerHTML = "Your answer is: " + finger;
+        }
+
+    </script>
+
+</body>
+</html>
