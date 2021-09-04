@@ -1,0 +1,58 @@
+body {
+  font-family: 'Architects Daughter', cursive;
+  font-weight: 600;
+  letter-spacing: 2px;
+  font-size: 25px;
+  overflow: hidden;
+}
+
+#bg {
+  /* Set rules to fill background */
+  min-height: 100%;
+  min-width: 1024px;
+  /* Set up proportionate scaling */
+  width: 100%;
+  height: auto;
+  /* Set up positioning */
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+@media screen and (max-width: 1024px) {
+  #bg {
+    left: 50%;
+    margin-left: -512px;
+  }
+}
+
+.container {
+  max-width: 600px;
+  position: relative;
+  top: 180px;
+  padding: 10px;
+  text-align: center;
+}
+
+.btn {
+  font-weight: 600;
+  letter-spacing: 2px;
+  font-size: 25px;
+  border-width: 2px;
+  border-radius: 10px;
+}
+
+.alert {
+  display: inline-block;
+}
+
+.result {
+  margin-top: 20px;
+}
+
+#close-btn {
+  position: relative;
+  left: 260px;
+  border: 2px black solid;
+}
+/*# sourceMappingURL=main.css.map */

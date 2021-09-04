@@ -1,55 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>How Many Fingers Game</title>
-</head>
-<body>
-    <p>How many fingers am i holding up?</p>
-    <p><input type="text" id="user-guess"></p>
-    <p id="warning"></p>
-    <button id="submit">Guess!</button>
-    <button id="ans">Check Answer</button>
-    <p id="result"></p>
-    <p id="show-ans"></p>
 
-    <script>
+    <head>
 
-        var finger = Math.floor((Math.random() * 5) + 1);
+        <!-- metadat -->
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <meta name="author" content="Bhargesh Patel">
+        <title>How Many Fingers Game</title>
 
-        document.getElementById("submit").onclick = function() {
-            userFinger = document.getElementById("user-guess").value;
-            if(userFinger > 5 || userFinger == "") {
-                document.getElementById("warning").style.display = "block";
-                document.getElementById("result").style.display = "none";
-                document.getElementById("warning").innerHTML = "Please enter a number between 0-5."
-                document.getElementById("warning").style.color = "red";
-            }else {
-                document.getElementById("warning").style.display ="none";
-                document.getElementById("result").style.display = "block";
-                if(finger == userFinger) {
-                    document.getElementById("result").innerHTML = "Congratulations, you won."
-                    document.getElementById("result").style.color = "green";
-                }else {
-                    document.getElementById("result").innerHTML = "Wrong guess, please try again."
-                    document.getElementById("result").style.color = "red";
-                }
-            }
-        }
+        <!-- bootstrap import -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
-        document.getElementById("user-guess").onclick = function() {
-            document.getElementById("user-guess").value = "";
-            document.getElementById("warning").style.display = "none";
-            document.getElementById("result").style.display = "none";
-        }
+        <!-- css import  -->
+        <link rel="stylesheet" href="assets/css/main.css">
 
-        document.getElementById("ans").onclick = function() {
-            document.getElementById("show-ans").innerHTML = "Your answer is: " + finger;
-        }
+        <!-- google fonts import -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap" rel="stylesheet">
 
-    </script>
+    </head>
 
-</body>
+    <body>
+
+        <img src="assets/img/bg.jpg" id="bg">
+
+        <div id="intro" class="container">
+
+            <p>Are your ready, to play the game?</p>
+            <p>Guess how many fingers am i holding up, let's see how you do.</p>
+            <button id="start-game" class="btn btn-outline-info">Start</button>
+
+        </div>
+
+        <div id="game" class="container">
+            
+            <button id="close-btn" type="button" class="btn-close" aria-label="Close" data-bs-toggle="tooltip" data-bs-placement="top" title="Close"></button>
+            <p>How many fingers am i holding up?</p>
+            <p>Answer: <input type="text" id="user-guess"></p>                                      
+            <p id="warning" class="alert alert-warning collapse" role="alert"></p>              
+            <button id="submit" class="btn btn-outline-primary">Guess!</button>                             
+            <button id="show-ans-btn" class="btn btn-outline-danger">Show answer</button>                   
+            <button id="hide-ans-btn" class="btn btn-outline-secondary">Hide Answer</button>              
+            <p id="result-true" class="alert alert-success collapse result" role="alert"></p>      
+            <p id="result-false" class="alert alert-danger collapse result" role="alert"></p>      
+            <p id="show-ans" class="alert alert-primary collapse result" role="alert"></p>        
+        </div>
+
+        <script src="assets/js/answer.js"></script>
+        <script src="assets/js/clear.js"></script>
+        <script src="assets/js/intro-game.js"></script>
+        <script src="assets/js/numbers-validation.js"></script>
+        <script src="assets/js/random.js"></script>
+        <script src="assets/js/result-warning.js"></script>
+        <script src="assets/js/tooltip.js"></script>
+
+    </body>
+
 </html>
